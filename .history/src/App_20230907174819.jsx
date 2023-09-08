@@ -1,0 +1,354 @@
+import React, { useState } from "react";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+// import MiApi from './components/MiApi';
+// import Buscador from './components/Buscador';
+
+function App() {
+  const [sortOption, setSortOption] = useState("asc"); // Estado para almacenar la opción de ordenamiento
+
+  return (
+    <div className="App">
+      <header>
+        {/* BARRA DE NAVEGACION */}
+        <nav className="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom">
+          <div className="container">
+            {/* <img src="assets/img/logo.png" className="img-fluid img-logo" /> */}
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarTogglerDemo01"
+              aria-controls="navbarTogglerDemo01"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
+              <a className="navbar-brand" href="#"></a>
+              <ul className="navbar-nav ms-auto mb-2 mb-lg-0 fs-5">
+                <li className="nav-item">
+                  <a
+                    className="nav-link active text-light"
+                    aria-current="page"
+                    href="#Acerca-de-mi"
+                  >
+                    Acerca de mi
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    className="nav-link active text-light"
+                    href="#Mis-proyectos"
+                  >
+                    Proyectos
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link active text-light" href="#Contacto">
+                    Contacto
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        {/* Fin de la barra de navegación */}
+      </header>
+
+      <section id="Hero-Section" className="text-light text-end py-5 mt-5">
+        <div className="container">
+          <div className="ms-auto col-12 col-md-7">
+            <h1 className="display-1 fw-bold my-5">
+              Hola, Mi nombre es Cristian Valencia...
+              {/* El signo agregado significa "cursando" */}
+            </h1>
+            <p className="my-5">
+              Diseñé este sitio para mostrar mis avances como estudiante de
+              Desarrollador Fullstack en Desafiolatam. La idea es poder mostrar
+              mi desarrollo y evolución respecto del aprendizaje de las
+              tecnologías necesarias y esperables al desempeño de un
+              desarrollador web.
+            </p>
+            <div className="mb-5 pb-5">
+              <a
+                className="btn btn-lg btn-outline-info text-light me-4"
+                href="#Mis-proyectos"
+              >
+                Trabajos
+              </a>
+              <a
+                className="btn btn-lg btn-outline-info text-light"
+                href="#Contacto"
+              >
+                Contacto
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ACERCA DE MI */}
+      <section id="Acerca-de-mi" className="container text-center my-5">
+        <h2 className="display-3 fw-bold my-4">Acerca de mi</h2>
+        <i className="fas fa-solid fa-laptop-code fa-2x my-3"></i>
+        <h3 className="subtitulo2 my-3 fw-bold">Desarrollador Fullstack©</h3>
+        <i className="fas fa-solid fa-code fa-2x my-3"></i>
+
+        <p className="my-4">
+          Actualmente soy estudiante del Bootcamp Desarrollador
+          Fullstack-Javascript en DesafioLatam, lo cual me motiva dado el
+          interés y motivación que siempre he mantenido por la tecnología.
+          Además de esto, también me desempeño a nivel profesional y por interés
+          en algunas de las siguientes áreas:
+        </p>
+
+        <div className="row">
+          <div className="col-12 col-md-4">
+            <i className="fas fa-solid fa-brain fa-3x my-3"></i>
+            <h3 className="my-3 fw-bold">Psicología</h3>
+            <p className="my-3">
+              Soy Psicólogo de profesión con un profundo interés en la Salud
+              mental individual y de equipos, por lo que tengo experiencia en el
+              desarrollo y fortalecimiento de habilidades blandas.
+            </p>
+          </div>
+          <div className="col-12 col-md-4">
+            <i className="fas fa-bullhorn fa-3x my-3"></i>
+            <h3 className="my-3 fw-bold">Liderazgo</h3>
+            <p className="my-3">
+              En mi experiencia laboral, me ha tocado ser parte de equipos y en
+              la última etapa dirigirlos, por lo que poseo habilidades de
+              liderazgo útiles al momento de obtener rendimiento individual y
+              grupal a la hora de alcanzar objetivos.
+            </p>
+          </div>
+          <div className="col-12 col-md-4">
+            <i className="fas fa-regular fa-lightbulb fa-3x my-3"></i>
+            <h3 className="my-3 fw-bold">Creatividad</h3>
+            <p className="my-3">
+              Una de las razones por las que comencé a interesarme por el mundo
+              de la tecnología, fue por la posibilidad de crear y probar cosas
+              nuevas. En un inicio comencé con Excel, sin embargo, sentía que
+              necesitaba algo más desafiante, claramente lo encontré en este
+              nicho, lo cual me motiva y entusiasma día a día.
+            </p>
+          </div>
+        </div>
+      </section>
+      {/* Fin de ACERCA DE MI */}
+
+      {/* MIS PROYECTOS */}
+      <section id="Mis-proyectos" className="my-5 p-5">
+        <div className="container">
+          <h2 className="display-4 fw-bold text-center text-light mb-3">
+            Mis Proyectos
+          </h2>
+
+          <div className="row">
+            {/* TARJETA 01-CURRICULUM */}
+            <div className="col-12 col-sm-3 py-2">
+              <div className="card">
+                <img
+                  className="card-img-top"
+                  src="./assets/img/cv.png"
+                  alt="Foto Proyecto HTML"
+                />
+                <div className="card-body">
+                  <h5 className="card-title fw-bold">Curriculum</h5>
+                  <p className="card-text">
+                    Desafío orientado al desarrollo de un Curriculum básico
+                    solamente con HTML.
+                  </p>
+                  <a
+                    className="btn btn-dark btn-outline-danger text-light"
+                    href="https://cvalenciapatagonia.github.io/Desafio_01-HTML/"
+                    target="_blank"
+                  >
+                    Ir al sitio
+                  </a>
+                  <a
+                    className="btn btn-dark btn-outline-danger text-light"
+                    href="https://github.com/cvalenciapatagonia/Desafio_01-HTML"
+                    target="_blank"
+                  >
+                    <i className="fas fa-solid fa-laptop-code fa-sm"></i>{" "}
+                    Repositorio
+                  </a>
+                </div>
+              </div>
+            </div>
+            {/* Fin TARJETA 01-CURRICULUM */}
+
+            {/* TARJETA 02-RETROGAMES */}
+            <div className="col-12 col-sm-3 py-2">
+              <div className="card">
+                <img
+                  className="card-img-top"
+                  src="./assets/img/card-2.jpg"
+                  alt="Foto Proyecto CSS"
+                />
+                <div className="card-body">
+                  <h5 className="card-title fw-bold">Retrogames</h5>
+                  <p className="card-text">
+                    Desafío CSS para poner a prueba lo aprendido. Me centré en
+                    una página de consolas Retro, dado el interés de mi hijo de
+                    11 años por todo lo relacionado al Gaming pero estilo
+                    Vintage.
+                  </p>
+                  <a
+                    className="btn btn-dark btn-outline-danger text-light"
+                    href="https://cvalenciapatagonia.github.io/Desafio_02-CSS/"
+                    target="_blank"
+                  >
+                    Ir al sitio
+                  </a>
+                  <a
+                    className="btn btn-dark btn-outline-danger text-light"
+                    href="https://github.com/cvalenciapatagonia/Desafio_02-CSS"
+                    target="_blank"
+                  >
+                    <i className="fas fa-solid fa-laptop-code fa-sm"></i>{" "}
+                    Repositorio
+                  </a>
+                </div>
+              </div>
+            </div>
+            {/* Fin TARJETA 02-RETROGAMES */}
+
+            {/* TARJETA 03-IGUANA PAGE */}
+            <div className="col-12 col-sm-3 py-2">
+              <div className="card">
+                <img
+                  className="card-img-top"
+                  src="./assets/img/card-3.jpg"
+                  alt="Foto Proyecto Posicionamiento"
+                />
+                <div className="card-body">
+                  <h5 className="card-title fw-bold">Iguana page</h5>
+                  <p className="card-text">
+                    Desafío Iguana page, consiste en una web informativa
+                    respecto de las Iguanas, hábitat y algunas especies. Entre
+                    las especies de iguanas que se abordan en esta página, se
+                    encuentra la iguana verde (Iguana iguana), una de las más
+                    populares como mascota en todo el mundo, la cual justamente
+                    es la protagonista del sitio.
+                  </p>
+                  <a
+                    className="btn btn-dark btn-outline-danger text-light"
+                    href="https://cvalenciapatagonia.github.io/Desafio_03-Landing-Page/"
+                    target="_blank"
+                  >
+                    Ir al sitio
+                  </a>
+                  <a
+                    className="btn btn-dark btn-outline-danger text-light"
+                    href="https://github.com/cvalenciapatagonia/Desafio_03-Landing-Page"
+                    target="_blank"
+                  >
+                    <i className="fas fa-solid fa-laptop-code fa-sm"></i>{" "}
+                    Repositorio
+                  </a>
+                </div>
+              </div>
+            </div>
+            {/* Fin TARJETA 03-IGUANA PAGE */}
+
+            {/* TARJETA 04-CUPPON */}
+            <div className="col-12 col-sm-3 py-2">
+              <div className="card">
+                <img
+                  className="card-img-top"
+                  src="./assets/img/card-4.png"
+                  alt="Foto Proyecto Bootstrap"
+                />
+                <div className="card-body">
+                  <h5 className="card-title fw-bold">Cuppon-page</h5>
+                  <p className="card-text">
+                    Desafío orientado al desarrollo de un modelo de página de
+                    cupones con Framework Bootstrap. La idea era realizar una
+                    página web responsiva que se ajuste tanto a una pantalla de
+                    escritorio como de móvil.
+                  </p>
+                  <a
+                    className="btn btn-dark btn-outline-danger text-light"
+                    href="https://cvalenciapatagonia.github.io/Desafio_04-Bootstrap/"
+                    target="_blank"
+                  >
+                    Ir al sitio
+                  </a>
+                  <a
+                    className="btn btn-dark btn-outline-danger text-light"
+                    href="https://github.com/cvalenciapatagonia/Desafio_04-Bootstrap"
+                    target="_blank"
+                  >
+                    <i className="fas fa-solid fa-laptop-code fa-sm"></i>{" "}
+                    Repositorio
+                  </a>
+                </div>
+              </div>
+            </div>
+            {/* Fin TARJETA 04-CUPPON */}
+          </div>
+        </div>
+      </section>
+      {/* Fin de MIS PROYECTOS */}
+
+      {/* CONTACTAME */}
+      <section id="Contacto" className="container my-5">
+        <h2 className="display-4 fw-bold text-center my-4">Contáctanos</h2>
+
+        <p className="text-center my-4 d-none d-md-block">
+          Envíame un mensaje y te ofrecemos una prueba gratuita por 30 dias sin costo
+        </p>
+
+        <form>
+          <div className="form-group mb-4">
+            <label className="mb-2">Nombre</label>
+            <input className="form-control" placeholder="Nombre" />
+          </div>
+
+          <div className="form-group mb-4">
+            <label className="mb-2">Correo electrónico</label>
+            <input className="form-control" placeholder="Correo electrónico" />
+          </div>
+
+          <div className="form-group">
+            <label className="mb-2">Mensaje</label>
+            <textarea
+              className="form-control"
+              placeholder="Escribe aquí tu mensaje"
+            ></textarea>
+          </div>
+
+          <div className="my-3 text-end">
+            <button className="btn bg-dark text-light">Enviar</button>
+          </div>
+        </form>
+      </section>
+      {/* Fin de CONTACTAME */}
+
+      {/* FOOTER */}
+      <footer className="text-center text-light p-4">
+        <p className="mb-0">
+          Cristian Valencia 2023. Todos los derechos reservados.
+        </p>
+      </footer>
+      {/* Fin de FOOTER */}
+    </div>
+  );
+}
+
+export default App;
+
+{
+  /* <h1>Feriados en Chile</h1> */
+}
+{
+  /* Pasa el estado y la función de cambio de ordenamiento al componente Buscador */
+}
+{
+  /* <Buscador onSortChange={setSortOption} />
+<MiApi apiURL="https://api.victorsanmartin.com/feriados/en.json" sortOption={sortOption} /> */
+}
