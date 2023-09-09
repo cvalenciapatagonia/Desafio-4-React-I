@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'; //Administramos los estados iniciales y en general para luego manejar los efectos secundarios
-import moment from 'moment'; //Biblioteca utilizada para el manejo y formateo de fechas utilizadas en el filtro
+import React, { useEffect, useState } from 'react';
+import moment from 'moment';
 
-function MiApi({ apiURL, sortOption, holidays }) { //Props utilizados para utilizar la api de feriados, ordenar los feriados y obtener la matriz de datos de la Api.
-  const [sortedHolidays, setSortedHolidays] = useState([]); // Estado para almacenar y mostrar los feriados segun la pciones seleccionada
+function MiApi({ apiURL, sortOption }) {
+  const [holidays, setHolidays] = useState([]);
+  const [sortedHolidays, setSortedHolidays] = useState([]);
 
-  useEffect(() => { // Se ejecuta para realizar la solicitu a la Api mediante fetch, tratando de obtener los datos de la api.De no ser exitoso, el error que se muestra es el texto en consola señalando que existe un error en la recepcion de datos.
+  useEffect(() => {
     fetch(apiURL)
       .then((response) => response.json())
       .then((data) => {
@@ -17,7 +18,7 @@ function MiApi({ apiURL, sortOption, holidays }) { //Props utilizados para utili
       });
   }, [apiURL]);
 
-  useEffect(() => { //ordenamos los feriados segun opcion seleccionada. luego crea una copia de los datos utilizando moment para el orden de las fechas. 
+  useEffect(() => {
     const sortHolidays = () => {
       const sorted = [...holidays];
       if (sortOption === 'asc') {
@@ -33,7 +34,6 @@ function MiApi({ apiURL, sortOption, holidays }) { //Props utilizados para utili
     sortHolidays();
   }, [sortOption, holidays]);
 
-  //En base a lo anterior, renderizamos y mostramos segun los datos ingresados y el orden solicitado 
   return (
     <div className="MiApi">
       <table>
@@ -56,4 +56,4 @@ function MiApi({ apiURL, sortOption, holidays }) { //Props utilizados para utili
   );
 }
 
-export default MiApi; //Exportamos la api al componente App.jsx
+export default MiApi;

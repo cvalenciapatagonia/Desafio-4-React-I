@@ -1,4 +1,3 @@
-// Importacion de bibliotacas y componentes
 import React, { useState, useEffect } from "react";
 import "font-awesome/css/font-awesome.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -6,17 +5,15 @@ import MiApi from "./components/MiApi";
 import Buscador from "./components/Buscador";
 
 function App() {
-  //Almacenamiento y estado de los componentes
-  const [sortOption, setSortOption] = useState("asc"); //Inicia con fechas ascendentes
-  const [searchText, setSearchText] = useState(""); //Inicia en blanco para introducir datos
-  const [holidays, setHolidays] = useState([]); // Almacena la lista de feriados de la Api
-  const [filteredHolidays, setFilteredHolidays] = useState([]); //Almacena la lista de feriados FIltrada de la Api
+  const [sortOption, setSortOption] = useState("asc");
+  const [searchText, setSearchText] = useState("");
+  const [holidays, setHolidays] = useState([]);
+  const [filteredHolidays, setFilteredHolidays] = useState([]);
 
-  const handleSearchChange = (e) => { //Actualizamos estado en la medida que se escriben datos en el input
-    setSearchText(e.target.value); //Realiza el filtrado en funcion de los datos ingresados y/o borrados en el input, actualizando la tabla de feriados.
+  const handleSearchChange = (e) => {
+    setSearchText(e.target.value);
   };
 
-  //Filtra los feriados en funcion del texto, iterando sobre los datos independiente de mayuscula o minuscula.
   const filterHolidays = () => {
     const filtered = holidays.filter((holiday) =>
       holiday.title.toLowerCase().includes(searchText.toLowerCase())
@@ -24,12 +21,10 @@ function App() {
     return filtered;
   };
 
-  //Solicitud de los datos a la Api mediante fetch para actualizar y convertir a formato json.
   useEffect(() => {
     fetch("https://api.victorsanmartin.com/feriados/en.json")
       .then((response) => response.json())
       .then((data) => {
-        //Si la solicitud es exitosa, se muestran los feriados mediante data.data, de lo contrario, arroja mensaje de error en consola.
         if (data.status === "success") {
           setHolidays(data.data);
           setFilteredHolidays(data.data);
